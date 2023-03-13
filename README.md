@@ -3,8 +3,8 @@ A Database that connects to a UI to change records
 ### MySQL+phpMyAdmin+Docker Instructions ###
 ```docker run --name db-easthillshoppingmall -p 33060:33060 -e MYSQL_ROOT_PASSWORD=hacker -d mysql```
 
-```docker exec -it db-easthillshoppingmall mysql -uroot -phacker
-CREATE DATABASE easthillshoppingmall;```
+```docker exec -it db-easthillshoppingmall mysql -uroot -phacker```
+```CREATE DATABASE easthillshoppingmall;```
 
 ### phpMyAdmin Instructions ###
 ```docker run --name phpmyadmin -d -p 8080:80 -e PMA_HOST=db-easthillshoppingmall phpmyadmin/phpmyadmin:latest```
