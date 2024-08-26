@@ -1,5 +1,17 @@
 # SimpleDatabase-GUI
 A Database that connects to a UI to change records
+### Docker Compose ###
+
+To start the containers, run the following command:
+```
+docker-compose up -d
+```
+
+When stopping the containers, run the following command:
+```
+docker-compose down
+```
+
 ### MySQL+phpMyAdmin+Docker Instructions ###
 ```docker run --name db-easthillshoppingmall -p 33060:33060 -e MYSQL_ROOT_PASSWORD=hacker -d mysql```
 
