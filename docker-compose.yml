@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+
+  db:
+    image: mysql:latest
+    container_name: db-easthillshoppingmall
+    environment:
+      MYSQL_ROOT_PASSWORD: hacker
+    ports:
+      - "33060:3306"
+    networks:
+      - project-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin-easthillshoppingmall
+    environment:
+      PMA_HOST: db-easthillshoppingmall
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    networks:
+      - project-network
+
+networks:
+  project-network:
+    driver: bridge
