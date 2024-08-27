@@ -6,13 +6,25 @@ services:
     image: mysql:latest
     container_name: db-easthillshoppingmall
     environment:
-      MYSQL_ROOT_PASSWORD: hacker
+      MYSQL_ROOT_PASSWORD: mysql
     ports:
       - "33060:3306"
     networks:
       - project-network
 
-  phpmyadmin:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: mariadb
+    ports:
+      - "33070:3306"
+    networks:
+      - project-network
+
+
+
+  phpmyadmin_mysql:
     image: phpmyadmin/phpmyadmin:latest
     container_name: phpmyadmin-easthillshoppingmall
     environment:
@@ -21,6 +33,18 @@ services:
       - "8080:80"
     depends_on:
       - db
+    networks:
+      - project-network
+
+  phpmyadmin_mariadb:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin-mariadb
+    environment:
+      PMA_HOST: mariadb
+    ports:
+      - "3377:80"
+    depends_on:
+      - mariadb
     networks:
       - project-network
 
